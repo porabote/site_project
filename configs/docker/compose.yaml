@@ -9,10 +9,10 @@ services:
     ports:
       - {{DOCKER_MAP_PORT}}:443
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/httpd-logs:/var/www/httpd-logs
-      - ./nginx/httpd-cert:/var/www/httpd-cert
-      - ./nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
+      - ./configs/nginx/conf.d:/etc/nginx/conf.d
+      - ./storage/nginx/httpd-logs:/var/www/httpd-logs
+      - ./configs/nginx/httpd-cert:/var/www/httpd-cert
+      - ./configs/nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
       - ./volumes:/var/www/public_html
     networks:
       - {{DOCKER_CONTAINER_PREFIX}}_network
@@ -26,8 +26,8 @@ services:
     ports:
       - 3103:443
     volumes:
-      - ./volumes/backend/porabote-api:/var/www/public_html/backend/porabote-api
-      - ./php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
+      - ./volumes/backend/projects/porabote-api:/var/www/public_html/backend/projects/porabote-api
+      - ./configs/php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
       - ./volumes/storage:/var/www/public_html/storage
     networks:
       - {{DOCKER_CONTAINER_PREFIX}}_network
