@@ -5,8 +5,8 @@
   "type": "module",
   "typescript": "*",
   "scripts": {
-    "start": "npx tsx --env-file=.env scripts/start.ts",
-    "clone": "npx tsx scripts/clone.ts"
+    "start": "npx tsx --env-file=.env docker.init.conf/node/scripts/start.ts",
+    "clone": "npx tsx docker.init.conf/node/scripts/clone.ts"
   },
   "keywords": [
     "porabote"

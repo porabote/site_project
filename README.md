@@ -1,3 +1,7 @@
+Install
+
+
+
 DOCKER
 docker compose up -d - создать контейнеры
 docker-compose down - удалить все контейнеры

@@ -5,14 +5,15 @@ networks:
 services:
   nginx:
     container_name: zaborstoit_nginx
-    build: ./images/nginx
+    image: nginx
+    #build: docker.init.conf/nginx
     ports:
       - 4131:443
     volumes:
-      - ./configs/nginx/conf.d:/etc/nginx/conf.d
-      - ./storage/nginx/httpd-logs:/var/www/httpd-logs
-      - ./configs/nginx/httpd-cert:/var/www/httpd-cert
-      - ./configs/nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
+      - ./docker.init.conf/nginx/configs/conf.d/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker.init.conf/nginx/configs/conf.d/nginx/httpd-logs:/var/www/httpd-logs
+      - ./docker.init.conf/nginx/configs/conf.d/nginx/httpd-cert:/var/www/httpd-cert
+      - ./docker.init.conf/nginx/configs/conf.d/nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
       - ./volumes:/var/www/public_html
     networks:
       - zaborstoit_network
@@ -22,13 +23,13 @@ services:
 
   zaborstoit_php:
     container_name: zaborstoit_php
-    build: ./images/php
+    build: docker.init.conf/php
     user: "1000:1000"
     ports:
       - 3103:443
     volumes:
       - ./volumes/backend/projects/porabote-api:/var/www/public_html/backend/projects/porabote-api
-      - ./configs/php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
+      - ./docker.init.conf/php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
       - ./volumes/storage:/var/www/public_html/storage
     networks:
       - zaborstoit_network
