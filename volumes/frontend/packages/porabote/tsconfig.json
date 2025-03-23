@@ -1,0 +1,32 @@
+{
+  "include": [
+    "../../services/**/*",
+  ],
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "target": "ES5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "rootDir": "../../",
+    "rootDirs": [
+      "./src",
+      "../../services/host/src"
+    ],
+    "paths": {
+      "@porabote": [
+        "../../packages/porabote/src/index"
+      ],
+      "@porabote/*": [
+        "../../packages/porabote/src/*"
+      ],
+      "@host/*": [
+        "../../services/host/src/*"
+      ]
+    }
+  }
+}

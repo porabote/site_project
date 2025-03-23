@@ -1,0 +1,52 @@
+{
+    "update_id": 181112056,
+    "callback_query": {
+        "id": "4269836540115825201",
+        "from": {
+            "id": 994148789,
+            "is_bot": false,
+            "first_name": "Denis",
+            "last_name": "Maksimov",
+            "username": "denis_porabote",
+            "language_code": "ru"
+        },
+        "message": {
+            "message_id": 100,
+            "from": {
+                "id": 6592403605,
+                "is_bot": true,
+                "first_name": "Besupr Game - your good habit",
+                "username": "BesuprGameBot"
+            },
+            "chat": {
+                "id": 994148789,
+                "first_name": "Denis",
+                "last_name": "Maksimov",
+                "username": "denis_porabote",
+                "type": "private"
+            },
+            "date": 1719091750,
+            "text": "ok",
+            "reply_markup": {
+                "inline_keyboard": [
+                    [
+                        {
+                            "text": "Yes",
+                            "callback_data": "yes"
+                        },
+                        {
+                            "text": "No",
+                            "callback_data": "no"
+                        },
+                        {
+                            "text": "Stop",
+                            "callback_data": "stop"
+                        }
+                    ]
+                ]
+            }
+        },
+        "chat_instance": "7026257692801226697",
+        "data": "no"
+    }
+}

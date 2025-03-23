@@ -1,0 +1,109 @@
+.prb-table-wrap {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow-x: scroll;
+}
+.prb-table {
+  padding-bottom: 20px;
+  max-width: 100vw;
+  //overflow-x: auto;
+}
+
+.prb-row {
+  display: grid;
+  font-family: 'Roboto Regular', serif;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+}
+.prb-row.head:hover { background: none; }
+
+.prb-row.float {
+  position: sticky;
+  top: 0;
+}
+
+.prb-row:hover {
+  background: #f0f1f4;
+}
+.prb-table.no-hover-bg .prb-row:hover {
+  background: none;
+}
+
+
+.prb-row:hover > .prb-table__cell  { background: none; }
+
+.prb-table.striped:hover .prb-row:hover:nth-child(even) .prb-table__cell {background: #e4e5e8}
+.prb-table.striped:hover .prb-row:hover:nth-child(odd) .prb-table__cell {background: #e4e5e8}
+
+.prb-table.no-hover-bg.striped:hover .prb-row:hover:nth-child(even) .prb-table__cell {background: none}
+.prb-table.no-hover-bg.striped:hover .prb-row:hover:nth-child(odd) .prb-table__cell {background: none}
+
+.prb-row.head .prb-table__cell  {
+  font-family: 'Roboto Medium', serif;
+  font-size: 1em;
+  //white-space: nowrap;
+  padding: 10px;
+}
+
+.prb-row .prb-table__cell  {
+  font-family: 'Roboto Regular', serif;
+  font-size: 0.84em;
+}
+.prb-table.medium .prb-table__cell{
+  font-size: 0.84em;
+}
+
+
+.prb-table__cell  {
+  padding: 4px;
+  border-bottom: 1px solid #f7f7f7;
+  min-width: 20px;
+  //overflow: hidden;
+  //text-overflow: ellipsis;
+  color: #222;
+}
+
+.prb-table.striped .prb-row:nth-child(even) .prb-table__cell {background: #f0f1f4}
+.prb-table.striped .prb-row:nth-child(odd) .prb-table__cell {background: #FFF}
+
+
+.prb-table__cell  .word-break,
+.word-break {
+  word-break: break-all;
+}
+
+.prb-table__cell .link_black {
+  font-family: "Roboto Bold", sans-serif;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+
+
+.prb-table::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.prb-table::-webkit-scrollbar-thumb {
+  background-color: #b8b8b8;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 0;  /* creates padding around scroll thumb */
+  max-height: 3px;
+}
+
+
+.prb-table::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  background: #b1b1b1;
+}
+
+.prb-table::-webkit-scrollbar-thumb {
+  background: #8c8c8c;
+  -webkit-border-radius: 1ex;
+}
+
+.prb-table::-webkit-scrollbar-corner {
+  background: #8c8c8c;
+}

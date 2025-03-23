@@ -1,0 +1,49 @@
+.prb-modal-page-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(17, 17, 17, 0.5);
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.prb-modal-page-wrap.active {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.prb-modal-page {
+  position: relative;
+  left: 0;
+  width: auto;
+  height: calc(100vh - 50px);
+  background: #ffffff;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  overflow: auto;
+  max-width: 1200px;
+}
+
+.modal-page-close-block {
+  border: 1px solid #f5f5f6;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+}
+.modal-page-close-block:hover {
+  background: #F9FAFB;
+}

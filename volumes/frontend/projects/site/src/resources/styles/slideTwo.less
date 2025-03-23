@@ -1,0 +1,59 @@
+
+
+  .main.home {
+    background-image: url("https://thyssenmining.ru/images/site/img/background.svg");
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden; /* Отключаем прокрутку */
+  }
+  .logo-link {
+    display: flex;
+    width: 134px;
+    height: 50px; /* Высота логотипа */
+    background-image: url('https://thyssenmining.ru/images/site/img/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  
+  .header_menu_item {
+    font-family: "Roboto Condensed", serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0 20px;
+    color: #151515;
+    text-decoration: none;
+    display: inline-block; /* Добавляем это свойство */
+    text-align: center; /* Выравниваем текст по центру */
+    transition: all 0.1s ease; /* Плавное изменение font-weight */
+  }
+  .header_menu_item:hover {
+    color: #388E70;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: -0.01em; /* компенсация смещения */
+  }
+  .page_pagination_reqtxt_span_main {
+    color: #4a4a4a;
+  }
+  .content_page__local_contacts_map {
+    width: 400px;
+    height: 230px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6)),
+    url('https://thyssenmining.ru/images/site/img/mos-map.png') center / cover;
+    transition: background 0.9s ease;
+  }
+  .content_page__local_contacts_map:hover {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)),
+    url('https://thyssenmining.ru/images/site/img/mos-map.png') center / cover;
+    transition: background 0.9s ease;
+  }
+  .header_lang_item {
+    color: #6c6c6c;
+  }
+  .header_lang_item.active {
+    color: #000000;
+  }

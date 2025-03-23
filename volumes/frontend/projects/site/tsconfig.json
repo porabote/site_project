@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.main.json",
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "baseUrl": ".",
+    "rootDir": "../../",
+    "rootDirs": [
+      "./src",
+      "../../packages/porabote/src"
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@porabote": [
+        "../../packages/porabote/src/index"
+      ],
+      "@porabote/*": [
+        "../../packages/porabote/src/*"
+      ],
+      "@/modules/*": [
+        "./src/modules/*"
+      ]
+    },
+    "resolveJsonModule": true
+  }
+}

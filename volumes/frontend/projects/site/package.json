@@ -1,0 +1,27 @@
+{
+  "name": "@projects/site",
+  "version": "2.0.0",
+  "author": "Denis Maksimov",
+  "license": "MIT",
+  "description": "porabote outside site",
+  "keywords": [
+    "porabote site"
+  ],
+  "scripts": {
+    "build": "npx tsx scripts/build.ts",
+    "start": "npx tsx scripts/start.ts",
+    "serve": "webpack serve"
+  },
+  "type": "module",
+  "typescript": "*",
+  "dependencies": {
+    "core-js": "3",
+    "moment": "^2.29.1",
+    "react": "^18.2.0",
+    "react-date-picker": "^10.6.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.17.0"
+  },
+  "main": "./src/index.ts"
+}

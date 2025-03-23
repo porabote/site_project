@@ -1,0 +1,263 @@
+.light-theme {
+  --formFontColor: #000000;
+  --formBackgroundColorHover: #333333;
+  --formBackgroundColor: #FFFFFF;
+  --formBorder: 1px solid #e3e3e3;
+  --formBorderRadius: 2px;
+}
+.dark-theme {
+  --formFontColor: #FFFFFF;
+  --formBackgroundColor: #474A51;
+  --formBorder: 0;
+  --formBorderRadius: 8px;
+}
+
+.on-form {
+  margin: 0;
+}
+
+.on-form.middle {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.form-item {
+  display: block;
+  position: relative;
+  padding: 6px 0;
+}
+
+.form-item.no_padding {
+  padding: 6px 0;
+}
+
+.form-item.grid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-gap: 0;
+}
+
+.form-item__select-native {
+  visibility: hidden;
+  display: none;
+}
+
+.form-item__select-native {
+  visibility: hidden;
+}
+
+.form_item__label {
+  width: 100%;
+  font-family: 'Roboto Light', serif;
+  font-size: 0.95em;
+  font-weight: 400;
+  padding: 4px 0;
+  display: block;
+  flex-basis: 30%;
+  color: var(--formFontColor);
+  min-width: 40px;
+  //line-height: 24px;
+  max-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.form_fieldset.small .form_item__label {
+  line-height: 14px;
+  max-height: 16px;
+  font-size: 12px;
+}
+
+
+.form_item__label.bold {
+  font-family: 'Roboto Medium', serif;
+  color: #444;
+  font-size: 14px;
+}
+
+.form-fieldset.small .form-item__label {
+  line-height: 14px;
+  max-height: 16px;
+  font-size: 12px;
+}
+
+.form-fieldset {
+  grid-gap: 2%;
+}
+
+.form-fieldset {
+  display: grid;
+  align-items: flex-start;
+}
+
+.form-item__label.bold {
+  font-family: 'Roboto Light', serif;
+  color: #444;
+  font-size: 14px;
+}
+
+.form-error-notice {
+  border: 1px solid #ef788a;
+  color: #c84f61;
+  padding: 10px 10px;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+
+.fast-find__item {
+  width: 100%;
+  position: relative;
+  border: 1px solid #f3f3f3;
+  display: grid;
+  grid-template-columns: 30px 3fr fit-content(100px) fit-content(20px);
+  margin-bottom: 20px;
+}
+
+.fast-find__item__input {
+  border: 0;
+  padding: 0 10px 0 15px;
+  border-radius: 0;
+  font-size: 14px;
+  line-height: 15px;
+  height: 31px;
+  transition: 0.2s;
+  width: 90%;
+}
+
+.fast-find__item__input {
+  border: 0;
+  padding: 0 10px 0 15px;
+  border-radius: 0;
+  font-size: 14px;
+  line-height: 15px;
+  height: 31px;
+  transition: 0.2s;
+  width: 90%;
+}
+
+.fast-find__item__drop-panel {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  box-shadow: 0px 6px 8px 0px rgba(201, 201, 201, 0.2);
+  padding: 0;
+  max-height: 50vh;
+  overflow: auto;
+  background: #fff;
+  z-index: 9999;
+}
+
+.fast-find__item__drop-panel__item {
+
+  padding: 6px 10px 6px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #191919;
+  text-decoration: none;
+  align-content: flex-end;
+  align-items: flex-end;
+  font-family: Helvetica, Sans-Serif, serif;
+  line-height: 18px;
+}
+
+.fast-find__item__drop-panel__item:first-child {
+  padding-top: 15px;
+}
+
+.fast-find__item__drop-panel__item:last-child {
+  padding-bottom: 15px;
+}
+
+.fast-find__item__drop-panel__item:hover {
+  cursor: pointer;
+  background: #fefde1;
+}
+
+
+.react-date-picker__wrapper {
+  position: relative;
+  font-family: Helvetica, Sans_Serif, serif;
+  display: flex;
+  border: var(--formBorder);
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0;
+  padding-left: 6px;
+  max-height: 30px;
+  box-shadow: none;
+  min-height: 34px;
+  min-width: 50px;
+  line-height: 28px;
+  background: var(--formBackgroundColor);
+}
+
+.form_item.filter-min {
+  padding: 0;
+}
+
+.form_item.filter-min .react-date-picker__calendar-button {
+  display: none;
+}
+.form_item.filter-min .react-date-picker__clear-button {
+  padding: 0;
+  padding-right: 4px;
+}
+.react-date-picker__clear-button__icon {
+  stroke: #5e5c5c;
+  width: 16px;
+}
+
+.form_item.min .react-date-picker__wrapper {
+  min-width: 68px;
+  padding: 3px 6px;
+  min-height: 35px;
+  box-sizing: border-box;
+}
+
+.form_item.filter-min .form_item__input_wrap  { //.form_item__input_wrap
+  min-height: 28px;
+}
+.fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 30px;
+  box-sizing: border-box;
+}
+
+.fieldset__title {
+  border-bottom: 1px solid #eef2f7;
+  padding-bottom: 5px;
+  padding-top: 14px;
+  font-size: 15px;
+  font-family: 'Roboto Medium', serif;
+}
+
+.input_share__container {
+  border-bottom: 1px solid #e3e3e3;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
+
+.input_share__icon {
+  color: #d9d9d9;
+  font-size: 20px;
+  padding: 4px 14px 4px 8px;
+  top: 2px;
+  position: relative;
+}
+
+.input_share_input {
+  border: 0;
+  width: 100%;
+  font-size: 16px;
+  line-height: 40px;
+  font-family: "Roboto Regular", serif;
+}
+
+
+.input_share_input::placeholder {
+  color: #c2b9b9;
+  font-size: 16px;
+  font-family: "Roboto Regular", serif;
+}
+

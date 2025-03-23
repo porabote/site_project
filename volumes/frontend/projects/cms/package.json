@@ -1,0 +1,29 @@
+{
+  "name": "@services/host",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npx tsx scripts/build.ts",
+    "start": "npx tsx scripts/start.ts",
+    "serve": "webpack serve"
+  },
+  "keywords": [
+    "porabote",
+    "crm",
+    "erp",
+    "b2b"
+  ],
+  "dependencies": {
+    "@packages/build-config": "*",
+    "@packages/porabote": "*",
+    "moment": "^2.29.1",
+    "react": "^18.2.0",
+    "react-date-picker": "^10.6.0",
+    "react-datepicker": "^7.5.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.17.0",
+    "redux-immutable": "^4.0.0"
+  }
+}

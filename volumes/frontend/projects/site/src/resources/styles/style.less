@@ -1,0 +1,434 @@
+/* Убираем отступы у body и html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Высота равна высоте viewport */
+  overflow: hidden; /* Отключаем прокрутку */
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url(../fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf);
+}
+
+body {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: #161616;
+  background-size: cover; /* Фон на всю страницу */
+}
+  .main {
+    margin: 0 auto;
+    background-color: #fff;
+    padding-top: 40px;
+    background-size: contain;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+
+
+
+  h1 {
+    font-family: "Roboto Condensed", serif;
+    font-size: 52px;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: 250px 1fr 60px;
+  }
+
+  .header_logo {
+    margin-left: 60px;
+  }
+
+  .header_menu {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+
+  .header_menu_item_CONT {
+    font-family: "Roboto Condensed", serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0 20px;
+    color: #151515;
+    text-decoration: none;
+    display: inline-block; /* Добавляем это свойство */
+    text-align: center; /* Выравниваем текст по центру */
+    transition: all 0.1s ease; /* Плавное изменение font-weight */
+  }
+
+  .header_menu_item_CONT:hover {
+    color: #388E70;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: -0.01em; /* компенсация смещения */
+  }
+
+  .header_lang {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .header_lang_item {
+
+  }
+
+  .header_lang.home .header_lang_item {
+    font-weight: 400;
+    font-size: 14px;
+
+  }
+
+  .header_lang_item.active {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .header_lang_item.active:after {
+    font-weight: 300;
+    font-size: 14px;
+    content: url("https://thyssenmining.ru/images/site/img/lang_circle.svg");
+    padding-left: 4px;
+    position: relative;
+    top: -2px;
+  }
+
+  .content_panel {
+    display: grid;
+    grid-template-columns: 560px 1fr;
+    padding-top: 100px;
+    border-bottom: 1px solid #03936361;
+  }
+
+  .content_panel_title {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 190px;
+
+  }
+
+  .content_panel_title h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 90px;
+    font-family: "Roboto Condensed", serif;
+    font-weight: 400;
+  }
+
+  .content_panel_tab_panel {
+    display: flex;
+    gap: 2em;
+    cursor: pointer;
+    padding-left: 60px;
+    padding-bottom: 20px;
+  }
+
+  .content_panel_tab_panel_item {
+    display: flex;
+    align-items: end;
+    align-content: center;
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .content_panel_tab_panel_item:hover {
+    font-weight: 400;
+    font-size: 24px;
+    padding-bottom: 10px;
+    color: #039363;
+
+  }
+.content_panel_tab_panel_item:focus {
+  font-weight: 400;
+  font-size: 24px;
+  padding-bottom: 10px;
+  color: #03754f;
+}
+
+  .content_page {
+    display: grid;
+    grid-template-columns: 620px 300px 1fr;
+  }
+
+  .content_page__img {
+    width: 300px;
+    height: 554px;
+    background-image: url("https://thyssenmining.ru/images/site/img/tmp_back.svg");
+  }
+
+  .content_page__share_contacts {
+    padding: 10px 30px 0 95px;
+    width: 495px;
+  }
+
+  .content_page__share_contacts p {
+    padding: 15px 40px 0 100px;
+    line-height: 24px;
+  }
+
+  .content_page__share_txt {
+    font-family: "Roboto Condensed", serif;
+    font-size: 20px;
+    color: #1B1B1BFF;
+    display: block;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .content_page__share_contacts_title {
+    font-family: "Roboto Condensed", serif;
+    font-size: 32px;
+    color: #039363;
+    display: block;
+    padding-top: 10px;
+    font-weight: 500;
+  }
+
+  .content_page__share_contacts_txt {
+    font-family: "Roboto Condensed", serif;
+    font-size: 20px;
+    color: #4f4f4f;
+    display: block;
+    font-weight: 400;
+  }
+
+  .content_page__local_contacts {
+    padding: 30px 30px 0 50px;
+  }
+
+  .content_page__local_contacts_name {
+    font-family: "Roboto Condensed", serif;
+    font-size: 20px;
+    color: #4f4f4f;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  .content_page__local_contacts_txt {
+    font-family: "Roboto Condensed", serif;
+    font-size: 18px;
+    color: #171717;
+    display: block;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  .content_page__local_contacts_map {
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)),
+    url('https://thyssenmining.ru/images/site/img/') center / cover;
+
+  }
+
+  .home_slogan {
+    font-size: clamp(80px, 7.3vw, 120px);
+    color: #ebebeb;
+    padding: 80px 0 0 50px;
+  }
+
+  .home_slogan p {
+    font-family: "Roboto Condensed", serif;
+    padding: 10px;
+    line-height: calc(0.5em + 0.6vw);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .home_slogan p span {
+    color: #388E70;
+  }
+
+  .page_pagination {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 230px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 40px 115px 1fr;
+    align-content: center;
+    justify-content: center;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(153, 153, 153, 0.3) 60%);
+  }
+
+  .page_pagination_reqtxt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 100px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    padding-left: 60px;
+  }
+
+  .page_pagination_reqtxt img {
+    padding: 0 20px;
+    opacity: 0.7;
+  }
+
+  .page_pagination_reqtxt span {
+    font-family: "Roboto Condensed", serif;
+    font-size: 15px;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  .page_pagination_reqtxt_span_main {
+    color: #ebebeb;
+  }
+
+  .page_pagination_reqtxt_span_cont {
+    color: #4a4a4a;
+  }
+
+  .page_pagination_line {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(153, 153, 153, 0.3) 60%);
+  }
+
+  .page_pagination_bar {
+    position: relative;
+    padding: 18px 16px 10px 20px;
+  }
+
+  .page_pagination_bar_toggler_scroll {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    top: 6px;
+    left: 2px;
+  }
+
+  .page_pagination_bar_toggler {
+    width: 12px;
+    height: 68px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+  }
+
+  .page_pagination_number {
+    font-size: 90px;
+    color: #303030;
+    text-align: center;
+  }
+
+  .page_pagination_count {
+    padding: 10px;
+    font-size: 40px;
+    color: #039363;
+  }
+
+  .page_pagination_count span {
+    border-bottom: 2px solid #1A1A1A;
+  }
+
+  .video-container {
+    position: absolute;
+    bottom: 100px;
+    right: 230px;
+    width: 470px;
+    height: 264px;
+    overflow: hidden;
+    border: 1px solid #676767;
+  }
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.page_pagination_bar_scr {
+  display: flex;
+  width: 15px;
+  height: 100%;
+
+}
+#scrl-icon{
+  --clr: #171717;
+  display:block;
+  width:16px;
+  height:auto;
+  overflow:visible;
+  margin:auto auto;
+}
+.scrl-body{
+  fill:none;
+  stroke:var(--clr);
+  stroke-linecap:round;
+  stroke-miterlimit:10;
+  stroke-width:3.5;
+  animation: scroll-parallax 2s cubic-bezier(.41,.07,.83,.67) infinite running
+}
+@keyframes scroll-parallax {
+  25%{
+    transform:translateY(0)
+  }
+  75%{
+    transform:translateY(-20%)
+  }
+}
+
+.scrl-wheel{
+  fill: #121111;
+  transform-origin:bottom;
+  animation: scroll-animation 2s linear infinite running;
+  will-change:transform;
+}
+
+@keyframes scroll-animation{
+  0% {
+    transform: translateY(-90%) scale(0.7, 0.1)
+  }
+  10% {
+    transform: translateY(-90%) scaleY(0.3)
+  }
+  25% {
+    transform: translateY(-20%) scaleY(1)
+  }
+  75% {
+    transform: translateY(40%) scaleY(1)
+  }
+  100% {
+    transform: translateY(20%) scale(0.8, 0.1);
+  }
+}

@@ -1,0 +1,133 @@
+.feed-widget {
+  padding: 25px 40px 25px 30px;
+  border: 1px solid #f8f8f8;
+}
+.prb-row.feed {
+  font-size: 1em;
+}
+.prb-row.feed .prb-table__cell {
+  padding: 10px;
+}
+
+.feed-widget__plus {
+  cursor: pointer;
+}
+
+.feed-widget__search-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0 0 0 20px;
+
+}
+.feed-widget__title {
+  padding-bottom: 20px;
+  grid-area: content_title;
+}
+.feed-widget__top-panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+.feed-widget__top-panel_right-part {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.feed-widget__plus {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.feed-widget__plus .icon-prb {
+  margin-right: 3px;
+}
+
+.feed-widget_filter-wrap {
+  display: grid;
+  align-content: center;
+  align-items: center;
+  opacity: 0;
+  border: 1px solid #f0f1f4;
+  border-radius: 25px;
+  padding: 0;
+  margin: 0 0 20px 0;
+  background-image: linear-gradient(rgb(240, 241, 244, 90), rgb(240, 241, 244, 50));
+  height: 0;
+  transition: visibility 0.2s, opacity 0.2s linear;
+}
+
+.feed-widget_filter-wrap.active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  padding: 10px 20px 10px 20px;
+}
+
+.feed-widget_filter-wrap .feed-widget_filter-wrap__fieldset {
+  grid-template-columns: repeat(5, 20%);
+  grid-gap: 20px;
+  display: none;
+}
+
+.feed-widget_filter-wrap.active .feed-widget_filter-wrap__fieldset {
+  display: grid;
+}
+
+
+.feed-widget_filter-wrap .form_item__label {
+  color: #14141a;
+  font-family: "Roboto Regular", serif;
+  padding-bottom: 4px;
+  font-size: 0.9em;
+}
+.filter__date-between-block {
+  display: flex;
+  gap: 6px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.lazy-load__info {
+  padding: 0 10px 10px 10px;
+  font-size: 0.9em;
+  color: #6c7077;
+  text-align: right;
+}
+
+
+.feed-widget_filter-wrap-static {
+  display: grid;
+  align-content: center;
+  align-items: center;
+  border: 1px solid #f0f1f4;
+  border-radius: 25px;
+  padding: 0;
+  margin: 0 0 20px 0;
+  background-image: linear-gradient(rgb(240, 241, 244, 90), rgb(240, 241, 244, 50));
+}
+
+.button_lazy-load {
+  color: #979ca4;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+}
+.button_lazy-load:hover {
+  color: #232a36;
+}
+.button_lazy-load__digital {
+  font-family: "Roboto Medium", sans-serif;
+  color: #232a36;
+}
+
+.button_lazy-load.non-active {
+  display: none;
+}

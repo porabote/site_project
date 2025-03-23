@@ -1,0 +1,4 @@
+{
+  "www_path": "/var/www/www-root",
+  "installer_path": "/var/www/www-root/porabote-installer/source"
+}

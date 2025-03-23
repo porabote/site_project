@@ -1,0 +1,63 @@
+networks:
+    {{DOCKER_CONTAINER_PREFIX}}_network:
+      name: {{DOCKER_CONTAINER_PREFIX}}_network
+
+services:
+  nginx:
+    container_name: {{DOCKER_CONTAINER_PREFIX}}_nginx
+    image: nginx
+    ports:
+      - {{DOCKER_MAP_PORT}}:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/httpd-logs:/var/www/httpd-logs
+      - ./nginx/httpd-cert:/var/www/httpd-cert
+      - ./nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
+      - ./volumes:/var/www/public_html
+    networks:
+      - {{DOCKER_CONTAINER_PREFIX}}_network
+    depends_on:
+      - {{DOCKER_CONTAINER_PREFIX}}_php
+      - {{DOCKER_CONTAINER_PREFIX}}_mysql
+
+  {{DOCKER_CONTAINER_PREFIX}}_php:
+    container_name: {{DOCKER_CONTAINER_PREFIX}}_php
+    build: ./images/php
+    ports:
+      - 3103:443
+    volumes:
+      - ./volumes/backend/porabote-api:/var/www/public_html/backend/porabote-api
+      - ./php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
+      - ./volumes/storage:/var/www/public_html/storage
+    networks:
+      - {{DOCKER_CONTAINER_PREFIX}}_network
+    depends_on:
+      - {{DOCKER_CONTAINER_PREFIX}}_mysql
+
+  {{DOCKER_CONTAINER_PREFIX}}_mysql:
+    container_name: {{DOCKER_CONTAINER_PREFIX}}_mysql
+    image: mysql
+    ports:
+      - {{HOST_MYSQL_PORT}}:{{DOCKER_MYSQL_PORT}}
+    expose:
+      - 3306
+    volumes:
+      - ./.srv/mysql/mysql-data:/var/lib/mysql
+      - ./.srv/mysql/mysql-conf:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD={{DOCKER_MYSQL_ROOT_PASSWORD}}
+      - MYSQL_USER={{DOCKER_MYSQL_USER}}
+      - MYSQL_PASSWORD={{DOCKER_MYSQL_PASSWORD}}
+      #- MYSQL_DATABASE=my_db
+    networks:
+      - {{DOCKER_CONTAINER_PREFIX}}_network
+
+#  client_site:
+#    container_name: client_site
+#    build: ./images/node
+#    ports:
+#      - 3001:80
+#    volumes:
+#      - ./www/clients/porabote-site:/var/www/public_html/clients/porabote-site
+#    networks:
+#      - porabote_network

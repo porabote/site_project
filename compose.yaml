@@ -1,0 +1,54 @@
+networks:
+    zaborstoit_network:
+      name: zaborstoit_network
+
+services:
+  nginx:
+    container_name: zaborstoit_nginx
+    build: ./images/nginx
+    ports:
+      - 4131:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/httpd-logs:/var/www/httpd-logs
+      - ./nginx/httpd-cert:/var/www/httpd-cert
+      - ./nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
+      - ./volumes:/var/www/public_html
+    networks:
+      - zaborstoit_network
+    depends_on:
+      - zaborstoit_php
+      - zaborstoit_mysql
+
+  zaborstoit_php:
+    container_name: zaborstoit_php
+    build: ./images/php
+    user: "1000:1000"
+    ports:
+      - 3103:443
+    volumes:
+      - ./volumes/backend/projects/porabote-api:/var/www/public_html/backend/projects/porabote-api
+      - ./php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
+      - ./volumes/storage:/var/www/public_html/storage
+    networks:
+      - zaborstoit_network
+    depends_on:
+      - zaborstoit_mysql
+
+  zaborstoit_mysql:
+    container_name: zaborstoit_mysql
+    image: mysql
+    ports:
+      - 3337:3306
+    expose:
+      - 3306
+    volumes:
+      - ./.srv/mysql/mysql-data:/var/lib/mysql
+      - ./.srv/mysql/mysql-conf:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=*5978ACEA46C1B81C7BEE2D1470ED1B002FE6840B
+      - MYSQL_USER=www_porabote
+      - MYSQL_PASSWORD=*5978ACEA46C1B81C7BEE2D1470ED1B002FE6840B
+      #- MYSQL_DATABASE=my_db
+    networks:
+      - zaborstoit_network
