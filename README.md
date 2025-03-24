@@ -45,10 +45,8 @@ useradd -u 1000 -g www-root -m -s /bin/bash www-root
 
 ### Troubleshooting
 
-502 Bad Gateway
+502 Bad Gateway - проверить все ли контейнеры активны
 
-проверить все ли контейнеры активны, посмотреть логи почему не запустилось docker logs project_alias_nginx
+посмотреть логи почему не запустилось docker logs project_alias_nginx
 
-403 Forbidden
-
-проверить логи /var/www/www-root/zaborstoit.project/nginx/httpd-logs/error.log
+403 Forbidden - проверить логи ./storage/httpd-logs/error.log

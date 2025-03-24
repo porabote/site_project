@@ -10,7 +10,7 @@ services:
       - {{DOCKER_MAP_PORT}}:443
     volumes:
       - ./docker.init.conf/nginx/conf.d:/etc/nginx/conf.d
-      - ./storage/nginx/httpd-logs:/var/www/httpd-logs
+      - ./volumes/storage/nginx/httpd-logs:/var/www/httpd-logs
       - ./docker.init.conf/nginx/httpd-cert:/var/www/httpd-cert
       - ./docker.init.conf/nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
       - ./volumes:/var/www/public_html
