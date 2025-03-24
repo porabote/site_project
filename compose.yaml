@@ -23,7 +23,7 @@ services:
 
   zaborstoit_php:
     container_name: zaborstoit_php
-    build: docker.init.conf/php
+    build: etc/php
     user: "1000:1000"
     ports:
       - 3103:443

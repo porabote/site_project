@@ -26,23 +26,23 @@ class ConfigFilesCreator {
 
     //NGINX site.conf
     if (this.projectType == "site") {
-      let destSitePath = "./docker.init.conf/nginx/conf.d/site.conf";
+      let destSitePath = "./etc/nginx/conf.d/site.conf";
       await this.copyFile(
-        "./docker.init.conf/nginx/conf.d.sample/site.conf", 
+        "./etc/nginx/conf.d.sample/site.conf", 
         destSitePath
       );
       this.replaceEnvVariables(destSitePath);
     }
 
     //NGINX host.conf
-    let hostPath = `./docker.init.conf/nginx/conf.d.sample/outside-${process.env['HOST_SERVER_NAME']}.conf`;
-    await this.copyFile("./docker.init.conf/nginx/conf.d.sample/host.conf", hostPath);
+    let hostPath = `./etc/nginx/conf.d.sample/outside-${process.env['HOST_SERVER_NAME']}.conf`;
+    await this.copyFile("./etc/nginx/conf.d.sample/host.conf", hostPath);
     this.replaceEnvVariables(hostPath);
 
     //NGINX porabote.conf
-    let destPath = "./docker.init.conf/nginx/conf.d/porabote.conf";
+    let destPath = "./etc/nginx/conf.d/porabote.conf";
     await this.copyFile(
-      "./docker.init.conf/nginx/conf.d.sample/porabote.conf",
+      "./etc/nginx/conf.d.sample/porabote.conf",
       destPath
     );
     this.replaceEnvVariables(destPath);
@@ -52,7 +52,7 @@ class ConfigFilesCreator {
   makeDockerComposeConfFile = async () => {
     let destPath = "./compose.yaml";
     await this.copyFile(
-      "./docker.init.conf/docker/sample/compose.yaml",
+      "./etc/docker/sample/compose.yaml",
       destPath
     );
     this.replaceEnvVariables(destPath);
