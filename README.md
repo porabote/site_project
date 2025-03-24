@@ -1,8 +1,10 @@
-###Install
+## Install
+
+1 .env change values
+2 yarn start
 
 
-
-DOCKER
+## DOCKER RUN
 docker compose up -d - создать контейнеры
 docker-compose down - удалить все контейнеры
 (или конкретный docker container rm 7cb16e1e5b4b_zaborstoit_mysql)

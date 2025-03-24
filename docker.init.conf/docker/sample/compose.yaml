@@ -9,10 +9,10 @@ services:
     ports:
       - {{DOCKER_MAP_PORT}}:443
     volumes:
-      - ./configs/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker.init.conf/nginx/conf.d:/etc/nginx/conf.d
       - ./storage/nginx/httpd-logs:/var/www/httpd-logs
-      - ./configs/nginx/httpd-cert:/var/www/httpd-cert
-      - ./configs/nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
+      - ./docker.init.conf/nginx/httpd-cert:/var/www/httpd-cert
+      - ./docker.init.conf/nginx/ssl/dhparam4096.pem:/etc/ssl/certs/dhparam4096.pem
       - ./volumes:/var/www/public_html
     networks:
       - {{DOCKER_CONTAINER_PREFIX}}_network
@@ -22,12 +22,12 @@ services:
 
   {{DOCKER_CONTAINER_PREFIX}}_php:
     container_name: {{DOCKER_CONTAINER_PREFIX}}_php
-    build: ./images/php
+    build: ./docker.init.conf/php
     ports:
       - 3103:443
     volumes:
       - ./volumes/backend/projects/porabote-api:/var/www/public_html/backend/projects/porabote-api
-      - ./configs/php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
+      - ./docker.init.conf/php/8.2.20/php8_2_20.ini:/usr/local/etc/php/php.ini
       - ./volumes/storage:/var/www/public_html/storage
     networks:
       - {{DOCKER_CONTAINER_PREFIX}}_network
@@ -40,7 +40,7 @@ services:
     ports:
       - {{HOST_MYSQL_PORT}}:{{DOCKER_MYSQL_PORT}}
     expose:
-      - 3306
+      - {{DOCKER_MYSQL_PORT}}
     volumes:
       - ./.srv/mysql/mysql-data:/var/lib/mysql
       - ./.srv/mysql/mysql-conf:/etc/mysql/conf.d
