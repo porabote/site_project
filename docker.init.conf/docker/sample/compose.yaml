@@ -45,7 +45,7 @@ services:
       - ./.srv/mysql/mysql-data:/var/lib/mysql
       - ./.srv/mysql/mysql-conf:/etc/mysql/conf.d
     environment:
-      - MYSQL_ROOT_PASSWORD={{DOCKER_MYSQL_ROOT_PASSWORD}}
+      - MYSQL_ROOT_PASSWORD={{DOCKER_MYSQL_PASSWORD_ROOT}}
       - MYSQL_USER={{DOCKER_MYSQL_USER}}
       - MYSQL_PASSWORD={{DOCKER_MYSQL_PASSWORD}}
       #- MYSQL_DATABASE=my_db
