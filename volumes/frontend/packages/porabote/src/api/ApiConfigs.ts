@@ -1,9 +1,0 @@
-export const APP_DOMAIN_BASE = "th.porabote.ru";
-export const API_URL = `https://th.porabote.ru/api`;
-export const API_VERSION = 1;
-export const API_CLIENT_ID = 4;
-export const FILES_URL = `https://${APP_DOMAIN_BASE}/files`;
-export const AUTH_URL = `https://${APP_DOMAIN_BASE}/api/auth`;
-export const ACCESS_TOKEN_NAME = "porabote_access_token";
-export const CHAT_DOMAIN = `wss://${APP_DOMAIN_BASE}`;
-export const CHAT_PORT = "4000";

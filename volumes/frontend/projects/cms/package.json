@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npx tsx scripts/build.ts",
-    "start": "npx tsx scripts/start.ts",
+    "build": "npx tsx --env-file=.env scripts/build.ts",
+    "start": "npx tsx --env-file=.env scripts/start.ts",
     "serve": "webpack serve"
   },
   "keywords": [

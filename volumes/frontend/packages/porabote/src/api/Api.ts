@@ -1,10 +1,9 @@
-import {API_URL, API_VERSION, API_CLIENT_ID} from "./ApiConfigs";
 import {getToken} from "@porabote/middlewares/Auth/AuthService";
 import {objectToQuerystring} from "./ApiHelper";
 
 class Api {
 
-    private url: string = API_URL;
+    private url: string = process.env['API_HOST'];
     private uri: string | null = null;
     private requestData: { [key: string]: any } = null;
     private readonly requestHeaders: { [key: string]: any };
@@ -34,8 +33,8 @@ class Api {
         requestHeaders.set('Access-Control-Allow-Credentials', 'false');
         requestHeaders.set('Authorization', `bearer ${getToken()}`);
         requestHeaders.set('Accept', 'application/json, text/html, application/xhtml+xml, application/xml;q=0.9, image/webp, */*;q=0.8');
-        requestHeaders.set('ClientId', `${API_CLIENT_ID}`);
-        requestHeaders.set('Api-Version', `${API_VERSION}`);
+        requestHeaders.set('ClientId', `${process.env['API_CLIENT_ID']}`);
+        requestHeaders.set('Api-Version', `${process.env['API_VERSION']}`);
         requestHeaders.set('max-age', `3900`);
 
         if (!this.isFormData) {
@@ -89,41 +88,8 @@ class Api {
 
 
         try {
-
             await this.sendRequest(responseParams);
-
-            // let response = await fetch(`${this.url}${this.uri}`, responseParams);
-            //
-            // if (!response.ok) {
-            //     alert('Api error');
-            //     this.response = {
-            //         ...{response: {status: response.status}},
-            //     };
-            // } else {
-            //     let json = await response.json();
-            //
-            //     if (typeof json.error != undefined) {
-            //         this.apiError = json.error;
-            //         if (typeof this.onApiErrorHandler == "function" && this.apiError) {
-            //             this.onApiErrorHandler(this.apiError);
-            //         }
-            //     }
-            //
-            //
-            //     const respData = {
-            //         ...json,
-            //         ...{response: {status: response.status}},
-            //     };
-            //
-            //     if (typeof this.onSuccessHandler == "function") {
-            //         this.onSuccessHandler(respData, this);
-            //     }
-            //
-            //     this.response = respData;
-            // }
-
             return this;
-
         } catch (error) {
             if (error instanceof SyntaxError) {
                 // Unexpected token < in JSON

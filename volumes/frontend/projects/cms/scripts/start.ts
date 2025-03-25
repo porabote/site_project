@@ -1,12 +1,10 @@
-import {join, dirname} from "path";
 import webpack from "webpack";
 import {killPortProcess} from 'kill-port-process';
 import WebpackDevServer from 'webpack-dev-server';
-import hostConfigs from '../host.configs';
 import webpackConfig from "../webpack.config";
 
-const PORT = hostConfigs.port ?? '3333';
-const HOST = hostConfigs.domain ?? 'localhost';
+const PORT = process.env['PORT'];
+const HOST = process.env['HOST'];
 
 const killPort = async (port: number|string) => {
   await killPortProcess(PORT, {signal: 'SIGTERM'});
@@ -16,8 +14,8 @@ const start = async () => {
 
   let conf = webpackConfig({mode: "development"});
 
-  const PORT = conf.devServer.port ?? 3000;
-  const HOST = conf.devServer.host ?? 'localhost';
+  const PORT = process.env['PORT'];
+  const HOST = process.env['HOST'];
 
   await killPort(PORT).catch((e) => {
     console.log(e);
