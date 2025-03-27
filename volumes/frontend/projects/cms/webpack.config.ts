@@ -2,7 +2,6 @@ import { fileURLToPath } from 'url';
 import {join, dirname, resolve} from "path";
 import {EnvVariables, BuildPaths, buildWebpack} from "@packages/build-config";
 import webpack from 'webpack';
-import hostConfigs from "./host.configs";
 import packageJson from "./package.json";
 
 export default ({mode}: EnvVariables) => {
@@ -21,16 +20,17 @@ export default ({mode}: EnvVariables) => {
   }
 
   const MINER_REPORT_REMOTE_URL = mode == 'development'
-      ? `https://${hostConfigs.domain}:7006` : `https://${hostConfigs.domain}/miner-report`;
-  // const ERP_REMOTE_URL = mode == 'development'
-  //   ? `https://${hostConfigs.domain}:7005` : `https://${hostConfigs.domain}/erp`;
-  // const CRM_REMOTE_URL = mode == 'development'
-  //   ? `https://${hostConfigs.domain}:7002` : `https://${hostConfigs.domain}/crm`;
-  // const AUTH_REMOTE_URL = mode == 'development'
-  //   ? `https://${hostConfigs.domain}:7003` : `https://${hostConfigs.domain}/auth`;
+      ? `https://${process.env.HOST}:7006` : `https://${process.env.HOST}/miner-report`;
 
   const config: webpack.Configuration = buildWebpack({
-    host: {...hostConfigs},
+    host: {
+      domain: process.env.HOST,
+      port: process.env.PORT,
+      certPath: join(__dirname, "./.cert/cert.crt"),
+      certKeyPath: join(__dirname, "./.cert/key.key"),
+      certCaPath: join(__dirname, "./.cert/ca.pem"),
+      chainKeyPath: "./.cert/chain.pem",
+    },
     mode: mode ?? 'development',
     paths,
     // analyzer: env.analyzer,

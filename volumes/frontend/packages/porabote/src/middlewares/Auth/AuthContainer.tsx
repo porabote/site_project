@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import AuthContext from "./AuthContext";
-import {loginHandler, getTokenData, signUpHandler, getToken, removeTokenToLocalStorage} from "./AuthService";
+import {getTokenData, getToken, removeTokenToLocalStorage} from "./AuthService";
 import JwtHandler from "@packages/porabote/src/helpers/JwtHelper";
 import {AuthPropsType, AuthType, LoginFormData} from "./Types";
 import {Api} from "@porabote";
@@ -48,16 +48,8 @@ const AuthContainer = (props: AuthPropsType) => {
     setIsAuthInited(true);
   }
 
-  const signUp = async (values: any, callback?: Function) => {
-    signUpHandler(values, callback);
-  }
-
-  const login = (values: LoginFormData, callbackSuccess: Function, callbackError: Function) => {
-    let successCallback = () => {
-      setIsAuth(true);
-      callbackSuccess();
-    }
-    loginHandler(values, successCallback, callbackError);
+  const setIsAuthHandler = (isAuth) => {
+    setIsAuth(isAuth);
   }
 
   const setAccessListHangle = (data: number[]) => {
@@ -90,9 +82,8 @@ const AuthContainer = (props: AuthPropsType) => {
   const value: AuthType = {
     user,
     isAuth,
-    login,
+    setIsAuth: setIsAuthHandler,
     logout,
-    signUp,
     isAuthInited,
     accessList,
     setAccessList: setAccessListHangle,

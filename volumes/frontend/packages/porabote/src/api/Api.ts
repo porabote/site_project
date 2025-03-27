@@ -3,7 +3,9 @@ import {objectToQuerystring} from "./ApiHelper";
 
 class Api {
 
-    private url: string = process.env['API_HOST'];
+    private host;
+    private api_version = 1;
+    private api_client_id = 1;
     private uri: string | null = null;
     private requestData: { [key: string]: any } = null;
     private readonly requestHeaders: { [key: string]: any };
@@ -13,7 +15,8 @@ class Api {
     private onSuccessHandler: Function = null;
     private onApiErrorHandler: Function = null;
 
-    constructor(uri: string) {
+    constructor(uri: string, config: {[key: string]: string}) {
+        this.host = config.api_host;
         this.uri = uri;
         this.requestHeaders = this.setHeaders();
     }
@@ -24,7 +27,7 @@ class Api {
     }
 
     setUrl = (url: string) => {
-        this.url = url;
+        this.host = url;
         return this;
     }
 
@@ -33,8 +36,8 @@ class Api {
         requestHeaders.set('Access-Control-Allow-Credentials', 'false');
         requestHeaders.set('Authorization', `bearer ${getToken()}`);
         requestHeaders.set('Accept', 'application/json, text/html, application/xhtml+xml, application/xml;q=0.9, image/webp, */*;q=0.8');
-        requestHeaders.set('ClientId', `${process.env['API_CLIENT_ID']}`);
-        requestHeaders.set('Api-Version', `${process.env['API_VERSION']}`);
+        requestHeaders.set('ClientId', `${this.api_client_id}`);
+        requestHeaders.set('Api-Version', `${this.api_version}`);
         requestHeaders.set('max-age', `3900`);
 
         if (!this.isFormData) {
@@ -142,7 +145,7 @@ class Api {
 
     public sendRequest = async (responseParams: RequestInit) => {
 
-        let response = await fetch(`${this.url}${this.uri}`, responseParams);
+        let response = await fetch(`${this.host}${this.uri}`, responseParams);
 
         if (!response.ok) {
             alert('Api error');
@@ -183,8 +186,8 @@ class Api {
 
 }
 
-const ApiFactory = (uri: string) => {
-    return new Api(uri);
+const ApiFactory = (uri: string, config: {[key: string]: string}) => {
+    return new Api(uri, config);
 }
 
 export default ApiFactory;

@@ -1,9 +1,0 @@
-const hostConfigs = {
-  domain: "mydomain.com",
-  port_dev: 7000,
-  certPath: ".cert/cert.crt",
-  certKey: ".cert/key.key",
-  chainKey: ".cert/chain.pem",
-}
-
-module.exports = hostConfigs;

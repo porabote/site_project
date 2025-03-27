@@ -3,28 +3,49 @@ import {useNavigate} from "react-router-dom";
 import {Form} from "@packages/porabote/src/ui/Form";
 import PasswordEyeIcon from "@packages/porabote/src/ui/Icons/forms/PasswordEyeIcon";
 import Icon from "@packages/porabote/src/ui/Icons";
-import {AuthContext} from "@packages/porabote";
+import {setTokenToLocalStorage} from "@/services/Auth/AuthService";
 import {SettingsContext} from "@packages/porabote";
 import FormSchema from "@packages/porabote/src/ui/Form/Schema/FormSchema";
 import FormSchemaFields from "@packages/porabote/src/ui/Form/Schema/FormSchemaFields";
 import FormSchemaButtons from "@packages/porabote/src/ui/Form/Schema/FormSchemaButtons";
 import {ModalContext} from "@packages/porabote/src/widgets/ModalWidget";
+import config from "../../../../config";
+import {ResponseType} from "@porabote/api";
+import {ResponseTypeError} from "@porabote/api/ApiTypes";
+import {AuthContext} from "@porabote";
+import Api from "@/services";
 
 const LoginForm = () => {
 
+  const {setIsAuth} = useContext(AuthContext);
   const {lang, setLang} = useContext(SettingsContext);
-  const {login} = useContext(AuthContext);
   const {pushBalloon} = useContext(ModalContext);
   const navigate = useNavigate();
 
-  const loginHandler = async ({values}) => {
 
-    login({...values},
-      () => {navigate('/auth/accounts');},
-      (error: string) => {
+  const loginHandler = async ({values}) => {
+console.log(config.api_url);
+    Api('/login')
+      .setUrl(config.api_url)
+      .onSuccess((response: ResponseType) => {
+
+        const {accessToken, refreshToken} = response.data;
+
+        if (!accessToken) {
+          return pushBalloon({error: 'Access token not received'});
+        }
+
+        setTokenToLocalStorage(accessToken);
+        setIsAuth(true);
+
+        navigate('/auth/accounts');
+
+      })
+      .onApiError((error: ResponseTypeError) => {console.log(error);
         pushBalloon(error);
-      }
-    );
+      })
+      .setData({...values}).post();
+
     // const req = await Api(LOGIN_API_URL).setData({...values}).post();
     //
     // if (req.getApiError()) {
@@ -69,11 +90,6 @@ const LoginForm = () => {
         name: 'login_button',
       }
     ]);
-
-  // formSchema.setInitialValues({
-  //   username: 'maksimov_den@mail.ru',
-  //   password: 'z7893727',
-  // });
 
   formSchema.getField('password').setProp('elementProps', {
     icons: [
